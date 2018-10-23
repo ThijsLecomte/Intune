@@ -34,7 +34,7 @@
 param (
     [string]$LogPath = "C:\Windows\Temp\CustomScripts\Add-AndroidApps.txt",
     [string]$csvLocation,
-    [string]$IntuneModule
+    [string]$IntuneModule,
     [Char]$csvDelimiter = ";"
 )
 #endregion
