@@ -33,10 +33,8 @@
 #Define Parameter LogPath
 param (
     [string]$LogPath = "C:\Windows\Temp\CustomScripts\Add-AndroidApps.txt",
-    [string]$csvLocation = "D:\GoogleDrive\Documenten\Scripts\Intune\Applications.csv",
-    #[string]$csvLocation = "C:\Users\tlcm\Google Drive\Documenten\Scripts\Intune\Applications.csv",
-    [string]$IntuneModule = "C:\Users\Thijs\Downloads\Intune-PowerShell-SDK_v6.1811.0.3-preview\Release\net471\Microsoft.Graph.Intune.psd1",
-    #[string]$IntuneModule = "C:\Users\tlcm\Downloads\Intune-PowerShell-SDK_v6.1811.0.3-preview\Release\net471\Microsoft.Graph.Intune.psd1",
+    [string]$csvLocation,
+    [string]$IntuneModule
     [Char]$csvDelimiter = ";"
 )
 #endregion
