@@ -1,30 +1,51 @@
 <#
 .SYNOPSIS
-    This is a PowerShell template.
+    This scripts add Android Applications into Microsoft Intune based on a CSV.
 
 .DESCRIPTION
-    Download cmdlets: https://github.com/Microsoft/Intune-PowerShell-SDK
-    Connect-MSGraph -AdminConsent
-    This is a PowerShell template. This can be used to base other scripts on.
-    If there are any problems with the script, please contact Orbid Servicedesk (servicedesk@orbid.be or + 32 9 272 99 00)
+    This script enables the functionalitity of adding Android Applications into Microsoft Intune based on a CSV.
+    The interaction with Intune is based on the newly released Intune Powershell SDK which 
+    can be downloaded through here the following link https://github.com/Microsoft/Intune-PowerShell-SDK.
+    
+    Before running this script for the first time the command 'Connect-MSGraph -AdminConsent' needs to be run once to
+    give permissions to this SDK.
+
+    This script imports the SDK module based on a path specified in a parameter.    
 
     This scripts creates a log file each time the script is executed.
     It deletes all the logs it created that are older than 30 days. This value is defined in the MaxAgeLogFiles variable.
 
 .PARAMETER LogPath
-    This defines the path of the logfile. By default: "C:\Windows\Temp\CustomScript\${FILE}.txt"
+    This defines the path of the logfile. By default: "C:\Windows\Temp\CustomScript\Add-AndroidApps.ps1.txt"
     You can overwrite this path by calling this script with parameter -logPath (see examples)
+
+.PARAMETER csvLocation
+    Path to the csv location
+    Headers are: Name;URL;Publisher;Description;MininumAndroidVersion;Icon
+    Name: String
+    URL: URI to Play Store
+    Publisher: Publisher app
+    Description
+    MinimumAndroidVersion: example:4_0
+    Icon: Path to local image file 
+
+.PARAMETER csvDelimiter
+    Delimiter used in CSV file
+
+.PARAMETER IntuneModule
+    Path to Intune Module to import
+    File to import: c:\temp\intune\Microsoft.Graph.Intune.psd1"
 
 .EXAMPLE
     Use the default logpath without the use of the parameter logPath
-    ..\${FILE}
+    ..\Add-AndroidApps.ps1
 
 .EXAMPLE
     Change the default logpath with the use of the parameter logPath
-    ..\${FILE} -logPath "C:\Windows\Temp\Template.txt"
+    ..\Add-AndroidApps.ps1-logPath "C:\Windows\Temp\Template.txt" -csvDelimiter ";" -csvLocation "C:\Temp\AppsToBeAdded.csv" -IntuneModule "c:\temp\intune\Microsoft.Graph.Intune.psd1" 
 
 .NOTES
-    File Name  : ${FILE}
+    File Name  : Add-AndroidApps.ps1
     Author     : Thijs Lecomte
     Company    : Orbid NV
 #>
