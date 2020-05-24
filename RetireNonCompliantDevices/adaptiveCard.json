@@ -1,0 +1,55 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.2",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "MEM Non-Compliant Device Action",
+            "weight": "Bolder",
+            "size": "Medium"
+        },
+        {
+            "type": "TextBlock",
+            "text": "New non-compliant device. Please choose the desired action.",
+            "wrap": true
+        },
+        {
+            "type": "FactSet",
+            "facts": [
+                {
+                    "title": "Device Name:",
+                    "value": "@{triggerBody()?['deviceName']}"
+                },
+                {
+                    "title": "Device OS:",
+                    "value": "@{triggerBody()?['operatingSystem']}"
+                },
+                {
+                    "title": "Device Ownership:",
+                    "value": "@{triggerBody()?['ownership']}"
+                },
+                {
+                    "title": "Assigned Compliance Policy:",
+                    "value": "@{triggerBody()?['compliancePolicy']}"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Retire",
+            "data": {
+                "id": "Retire"
+            }
+        },
+        {
+            "type": "Action.Submit",
+            "title": "Clear Device state",
+            "data": {
+                "id": "clear"
+            }
+        }
+    ]
+}
