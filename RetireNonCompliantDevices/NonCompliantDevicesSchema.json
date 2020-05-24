@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "properties": {
+        "@@odata.context": {
+            "type": "string"
+        },
+        "value": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "complianceState": {
+                        "type": "string"
+                    },
+                    "managementAgent": {
+                        "type": "string"
+                    },
+                    "managedDeviceName": {
+                        "type": "string"
+                    },
+                    "managedDeviceId": {
+                        "type": "string"
+                    },
+                    "deviceType": {
+                        "type": "string"
+                    },
+                    "retireAfterDateTime": {
+                        "type": "string"
+                    },
+                    "ownerType": {
+                        "type": "string"
+                    },
+                    "deviceCompliancePolicyName": {
+                        "type": "string"
+                    },
+                    "deviceCompliancePolicyId": {
+                        "type": "string"
+                    },
+                    "roleScopeTagIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "managedDeviceId",
+                    "managedDeviceName",
+                    "deviceType",
+                    "complianceState",
+                    "retireAfterDateTime",
+                    "managementAgent",
+                    "ownerType",
+                    "deviceCompliancePolicyName",
+                    "deviceCompliancePolicyId",
+                    "roleScopeTagIds"
+                ]
+            }
+        }
+    }
+}
